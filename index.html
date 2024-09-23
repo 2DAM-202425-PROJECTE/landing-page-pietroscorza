@@ -6,9 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
     <title>Vite App</title>
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+
   </head>
   <body class="bg-slate-400">
-    <header>
+    <header class="fixed w-full z-20">
       <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
           <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
               <a href="https://flowbite.com" class="flex items-center">
@@ -82,17 +84,31 @@
       
           <div x-show="menuOpen1" class="p-5">
               <ul>
-                  <li>Java</li>
-                  <li>Python</li>
-                  <li>JavaScript</li>
-                  <li>Dart</li>
+                  <li>Java                  <i class="devicon-java-plain colored"></i>
+                  </li>
+
+                  <li>Python 
+                    <i class="devicon-python-plain colored"></i>
+                  </li>
+                  <li>JavaScript 
+                    <i class="devicon-javascript-plain colored"></i>
+                  </li>
+                  <li>Dart 
+                    <i class="devicon-dart-plain colored"></i>
+                  </li>
               </ul>
           </div>
           <div x-show="menuOpen2" class="p-5">
               <ul>
-                  <li>React</li>
-                  <li>Tailwind</li>
-                  <li>Flutter</li>
+                  <li>React 
+                    <i class="devicon-react-original colored"></i>
+                  </li>
+                  <li>Tailwind 
+                    <i class="devicon-tailwindcss-original colored"></i>
+                  </li>
+                  <li>Flutter 
+                    <i class="devicon-flutter-plain colored"></i>
+                  </li>
               </ul>
           </div>
           <div x-show="menuOpen3" class="p-5">
