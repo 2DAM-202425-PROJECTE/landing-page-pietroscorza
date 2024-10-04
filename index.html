@@ -23,7 +23,7 @@
                           <a href="index.html" class="block py-2 pr-4 pl-3 text-white rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white" aria-current="page">qui soc</a>
                       </li>
                       <li>
-                          <a href="#coneixements" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">soft skills</a>
+                          <a href="#softskill" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">soft skills</a>
                       </li>
                       <li>
                           <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Proyectes anteriors</a>
@@ -254,31 +254,6 @@
   </div>
 </div>
 
-<section class="mt-10 w-full h-[500px] flex  flex-col justify-center items-center">
-
-  <div id="coneixements" class=" bg-slate-800 my-10 rounded-md shadow-xl "><h2 class="text-3xl font-bold tracking-tight text-white m-4 sm:text-4xl">Soft Skills</h2></div>
-
-  <div class="mt-10 w-2/3 h-full gap-5 grid grid-cols-4 grid-rows-4">
-            
-    <section class="bg-slate-900 col-span-2 rounded-xl shadow-lg flex justify-center items-center">
-      <h1 class="font-extrabold text-2xl text-center text-white m-3"> COMUNICACIO EFECTIVA </h1>
-    </section>
-    <section class="bg-slate-900 col-span-2 rounded-xl shadow-lg flex justify-center items-center">
-      <h1 class="font-extrabold text-2xl text-center text-white m-3"> TREBALL EN EQUIP</h1>
-    </section>
-    <section class="bg-slate-900 col-span-1 row-span-2 rounded-xl shadow-lg flex justify-center items-center">
-     <h1 class="font-extrabold text-2xl text-center text-white m-3"> ADAPTABILITAT </h1>
-    </section>
-    <section class="bg-slate-900 col-span-3 rounded-xl shadow-lg flex justify-center items-center  ">
-     <h1 class="font-extrabold text-2xl text-center text-white m-3"> CREATIVITAT</h1>
-    </section> 
-    <section class="bg-slate-900 col-span-2 rounded-xl shadow-lg flex justify-center items-center">
-    <h1 class="font-extrabold text-2xl text-center text-white m-3"> EMPATIA </h1></section>
-    <section class="bg-slate-900 col-span-1 rounded-xl shadow-lg flex justify-center items-center">
-    <h1 class="font-extrabold text-2xl text-center text-white m-3"> GESTIÓ DEL TEMPS </h1>
-</section>
-  </div>
-</section>
 <section class="h-[700px] flex flex-col w-full justify-start items-center">
   <div id="coneixements" class=" bg-slate-800 my-10 rounded-md shadow-xl "><h2 class="text-3xl font-bold tracking-tight text-white m-4 sm:text-4xl">Jugar al trivial</h2></div>
 
@@ -290,7 +265,7 @@
 
   </div>
 
-  <div class="respostes grid grid-cols-2 grid-rows-2 gap-5">
+  <div class="w-2/3 respostes text-center grid grid-cols-2 grid-rows-2 gap-5">
 
 
   </div>
@@ -325,6 +300,7 @@
 
 <script>
 
+
 const url = 'https://trivia-questions-api.p.rapidapi.com/triviaApi';
 const options = {
 	method: 'GET',
@@ -339,17 +315,26 @@ fetch( url, options)
 .then(data => {
   console.log(data);
 
+
   const preguntacontenedor = document.querySelector('.contenedor-pregunta');
   const pregunta = document.createElement('p');
   pregunta.textContent = data.triviaQuestions[0].question;
   preguntacontenedor.appendChild(pregunta);
   
-  let respostes = document.createElement(p);
+  let resposta = document.createElement("p");
   respostaCorrecta = data.triviaQuestions[0].correct_answer;
 
   const respostescontenedor = document.querySelector('.respostes');
-  
+  resposta.textContent = data.triviaQuestions[0].correct_answer;
+  respostescontenedor.appendChild(resposta);  
 
+  respostesIcorrectes = data.triviaQuestions[0].incorrect_answers;
+
+  for (let ans of respostesIcorrectes) {
+    let resposta = document.createElement("p");
+    resposta.textContent = ans;
+    respostescontenedor.appendChild(resposta);
+  }
 }
 
 )
