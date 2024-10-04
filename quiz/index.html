@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+<body>
+    <section class="h-[700px] flex flex-col w-full justify-start items-center">
+        <div id="coneixements" class=" bg-slate-800 my-10 rounded-md shadow-xl "><h2 class="text-3xl font-bold tracking-tight text-white m-4 sm:text-4xl">Jugar al trivial</h2></div>
+      
+        <h2 class="text-2xl font-bold">
+          pregunta:
+        </h2>
+      
+        <div class="contenedor-pregunta text-2xl font-bold m-2">
+      
+        </div>
+      
+        <div class="w-2/3 respostes text-center grid grid-cols-2 grid-rows-2 gap-5">
+      
+      
+        </div>
+      
+      </section>
+</body>
+<script>
+
+
+    const url = 'https://trivia-questions-api.p.rapidapi.com/triviaApi';
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': 'ceee611e2cmshfdb0f6e636fba22p13eb30jsnaf266b2134b6',
+            'x-rapidapi-host': 'trivia-questions-api.p.rapidapi.com'
+        }
+    };
+    
+    fetch( url, options)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+    
+    
+      const preguntacontenedor = document.querySelector('.contenedor-pregunta');
+      const pregunta = document.createElement('p');
+      pregunta.textContent = data.triviaQuestions[0].question;
+      preguntacontenedor.appendChild(pregunta);
+      
+      let resposta = document.createElement("p");
+      respostaCorrecta = data.triviaQuestions[0].correct_answer;
+    
+      const respostescontenedor = document.querySelector('.respostes');
+      resposta.textContent = data.triviaQuestions[0].correct_answer;
+      respostescontenedor.appendChild(resposta);  
+    
+      respostesIcorrectes = data.triviaQuestions[0].incorrect_answers;
+    
+      for (let ans of respostesIcorrectes) {
+        let resposta = document.createElement("p");
+        resposta.textContent = ans;
+        respostescontenedor.appendChild(resposta);
+      }
+    }
+    
+    )
+    .catch(error => console.error('Error:', error));
+    
+    
+    </script>
+</html>

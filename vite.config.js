@@ -8,6 +8,8 @@ export default defineConfig({
         input: {
           main: resolve(__dirname, 'index.html'),
           softskills: resolve(__dirname, 'softskills/index.html'),
+          quiz: resolve(__dirname, 'quiz/index.html'),
+
         },
       },
     },
