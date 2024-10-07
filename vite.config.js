@@ -9,6 +9,7 @@ export default defineConfig({
           main: resolve(__dirname, 'index.html'),
           softskills: resolve(__dirname, 'softskills/index.html'),
           quiz: resolve(__dirname, 'quiz/index.html'),
+          reseñes: resolve(__dirname, 'reseñes/index.html'),
 
         },
       },
